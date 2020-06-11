@@ -27,14 +27,11 @@ class Driver:
         # 过滤结果 只保留flag内容
         self.result = re.search(r'Bugku\{.+\}', result).group()
 
-    def run(self):
-        self.compute()
-        self.get_payload()
         return self.result
 
 
 if __name__ == '__main__':
     print('ctf_poc01: BugkuCTF 秋名山老司机')
     url = input('请输入题目链接：')
-    tmp = Driver(url).run()
+    tmp = Driver(url).compute()
     print(tmp)
