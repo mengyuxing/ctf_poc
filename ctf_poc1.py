@@ -25,7 +25,10 @@ class Driver:
         result = self.s.post(self.url, data=data).text
 
         # 过滤结果 只保留flag内容
-        self.flag = re.search(r'Bugku\{.+\}', result).group()
+        try:
+            self.flag = re.search(r'Bugku\{.+\}', result).group()
+        except AttributeError:
+            print('未发现flag!')
 
         return self.flag
 
