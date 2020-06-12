@@ -13,7 +13,7 @@ class Driver:
         self.s = requests.Session()
 
         self.expression = ''    # 计算表达式
-        self.result = ''        # flag
+        self.flag = ''        # flag
 
     def compute(self):
         # 获取计算表达式
@@ -25,9 +25,9 @@ class Driver:
         result = self.s.post(self.url, data=data).text
 
         # 过滤结果 只保留flag内容
-        self.result = re.search(r'Bugku\{.+\}', result).group()
+        self.flag = re.search(r'Bugku\{.+\}', result).group()
 
-        return self.result
+        return self.flag
 
 
 if __name__ == '__main__':
