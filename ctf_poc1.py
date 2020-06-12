@@ -33,5 +33,5 @@ class Driver:
 if __name__ == '__main__':
     print('ctf_poc01: BugkuCTF 秋名山老司机')
     url = input('请输入题目链接：')
-    tmp = Driver(url).compute()
-    print(tmp)
+    flag = Driver(url).compute()
+    print(flag)
